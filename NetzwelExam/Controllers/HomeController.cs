@@ -17,15 +17,13 @@ namespace NetzweltExam.Controllers
         {
             _netzweltService = netzweltService;
         }
-
-
-        [Route("")]
+        
+        [Authorize]
         public IActionResult Index()
         {
             return View();
         }
-
-        [Route("territory")]
+        
         [Authorize]
         public async Task<IActionResult> Territory()
         {

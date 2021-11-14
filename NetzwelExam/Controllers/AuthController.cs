@@ -10,7 +10,6 @@ using NetzweltExam.Services;
 
 namespace NetzweltExam.Controllers
 {
-    [Route("auth")]
     public class AuthController : Controller
     {
         private readonly INetzweltService _netzweltService;
@@ -19,14 +18,12 @@ namespace NetzweltExam.Controllers
         {
             _netzweltService = netzweltService;
         }
-
-        [Route("login")]
+        
         public IActionResult Login()
         {
             return View(new LoginModel());
         }
-
-        [Route("login")]
+        
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> Login(LoginModel model)

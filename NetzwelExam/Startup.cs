@@ -20,6 +20,11 @@ namespace NetzweltExam
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddMvc().AddRazorPagesOptions(options =>
+            //{
+            //    options.Conventions.AddPageRoute("/Home/Index", "");
+            //});
+
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(option =>
                 {
@@ -43,7 +48,13 @@ namespace NetzweltExam
             app.UseAuthentication();
 
             app.UseMvc();
-            
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}");
+            });
         }
     }
 }
