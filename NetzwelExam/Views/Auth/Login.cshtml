@@ -1,0 +1,31 @@
+﻿
+@model NetzweltExam.Controllers.LoginModel
+
+<div class="jumbotron">
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div asp-validation-summary="All" class="alert alert-danger"></div>
+    }
+    
+    <h2 class="form-heading">Please sign in</h2>
+    <form class="form" method="post" novalidate>
+
+
+        <div class="row">
+            <label for="inputUser" class="control-label">Username</label>
+            <input type="text" asp-for="Username" id="inputUser" class="input-sm" placeholder="Username" required autofocus />
+        </div>
+        <br />
+        <div class="row">
+            <label for="inputPassword" class="control-label">Password</label>
+            <input type="password" asp-for="Password" id="inputPassword" class="input-sm" placeholder="Password" required />
+        </div>
+        <br />
+        <div class="row">
+            <button class="btn btn-primary" type="submit">Log in</button>
+            <button class="btn btn-default" asp-controller="Home" asp-action="Index">Cancel</button>
+        </div>
+    </form>
+
+</div>

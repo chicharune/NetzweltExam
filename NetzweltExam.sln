@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.960
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetzwelExam", "NetzwelExam\NetzwelExam.csproj", "{008409C2-9375-4173-869B-E2E99F26E14C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetzweltExam", "NetzwelExam\NetzweltExam.csproj", "{008409C2-9375-4173-869B-E2E99F26E14C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

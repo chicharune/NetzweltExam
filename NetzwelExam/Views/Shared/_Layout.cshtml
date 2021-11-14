@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.min.css" />
+</head>
+<body>
+    <div class="container body-content">
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Netzwelt</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="navbar-brand" asp-controller="Home" asp-action="Territory">Territory</a>
+                    }
+                </div>
+            </div>
+        </nav>
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2021 - Netzwelt</p>
+        </footer>
+    </div>
+
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
