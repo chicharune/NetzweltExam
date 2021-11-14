@@ -33,7 +33,7 @@ namespace NetzweltExam.Controllers
 
             var treeView = GenerateTreeView(territories.Data, null);
 
-            var htmlTreeView = GenerateHtmlTreeView(treeView);
+            var htmlTreeView = GenerateHtmlTreeView(treeView, "", false);
 
             ViewBag.HtmlTree = htmlTreeView;
 
@@ -67,16 +67,25 @@ namespace NetzweltExam.Controllers
             return treeViewList;
         }
 
-        private static string GenerateHtmlTreeView(List<TreeNode> list)
+        private static string GenerateHtmlTreeView(List<TreeNode> list, string parentName, bool isNested)
         {
-            string retString = "<ul>";
+            string retString = "<ul class=\"list-group\">";
+
+            if (isNested)
+            {
+                retString = $"<ul class=\"nested nav-list collapse\" id=\"{parentName}\">";
+            }
 
             foreach (var node in list)
             {
-                retString += $"<li>{node.Name}</li>";
                 if (node.ChildNodes.Any())
                 {
-                    retString += GenerateHtmlTreeView(node.ChildNodes);
+                    retString += $"<li class=\"nav-header list-group-item\" data-toggle=\"collapse\" data-target=\"#ul{node.Name.Replace(" ", "")}\"><span class=\"caret\"></span>  {node.Name}</li>";
+                    retString += GenerateHtmlTreeView(node.ChildNodes, ("ul" + node.Name.Replace(" ", "")), true);
+                }
+                else
+                {
+                    retString += $"<li class=\"list-group-item\">{node.Name}</li>";
                 }
             }
 

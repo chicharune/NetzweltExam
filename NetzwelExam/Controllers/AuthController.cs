@@ -40,7 +40,7 @@ namespace NetzweltExam.Controllers
 
             if (user == null)
             {
-                ModelState.AddModelError("InvalidCredentials","Unable to validate credenetials.");
+                ModelState.AddModelError("InvalidCredentials","Invalid Username and/or Password.");
                 return View(model);
             }
 
